@@ -1,33 +1,27 @@
 import React, { useState } from 'react';
-import RecipeList from './RecipeList'
+import Question from './Question';
+import Result from './Result';
 
 export default function App() {
-	return (
-		<RecipeList recipes={sampleRecipes} />
-	)
-}
+    const [showQuestion, setShowQuestion] = useState(true)
+    const [coords, setCoords] = useState(getRandomCoordsPair)
+    const [waterChoice, setWaterChoice] = useState(false)
+    
 
-const sampleRecipes = [
-    {
-        id: 1,
-        name: 'Braised Paneer',
-        cookTime: '0:20',
-        servings: 5,
-        instructions: [
-            'Melt 2 tablespoons butter on a pan',
-            'Saute 1/2 inch thick slices of paneer till golden brown',
-            'Serve hot after generously sprinkling salt'
-        ]
-    },
-    {
-        id: 2,
-        name: 'Toast Sandwich',
-        cookTime: '0:25',
-        servings: 5,
-        instructions: [
-            'Spread softened butter on one side of each slice of bread',
-            'Toast on a griddle with buttered side up till golden brown',
-            'Cut each toast into half diagonally, and fold and serve'
-        ]
+    
+    if(showQuestion) return <Question setShowQuestion={setShowQuestion} coords={coords} setWaterChoice= {setWaterChoice}/>
+    return <Result waterChoice={waterChoice}/>
+
+    function getRandomCoordsPair() {
+        const lat = getRandomCoord(90)
+        const lon = getRandomCoord(180)
+        return ({ lat, lon })
     }
-]
+
+    function getRandomCoord(maxMagnitude) {
+        const sign = Math.random()<0.5 ? 1 : -1;
+        const magnitude = Math.floor(Math.random()*(maxMagnitude+1))
+        return sign*magnitude;
+    }
+
+}
