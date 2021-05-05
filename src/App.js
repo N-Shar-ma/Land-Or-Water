@@ -1,16 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Question from './Question';
 import Result from './Result';
+
+const ACCESS_TOKEN = "KZUPxtJVPPjr2DXyqV3F"
 
 export default function App() {
     const [showQuestion, setShowQuestion] = useState(true)
     const [coords, setCoords] = useState(getRandomCoordsPair)
-    const [waterChoice, setWaterChoice] = useState(false)
+    const [waterChoice, setWaterChoice] = useState()
+    const [correctChoice, setCorrectChoice] = useState()
+    const [loading, setLoading] = useState(true)
     
-
+    useEffect(() => {
+        if(showQuestion) return
+        async function fetchData() {
+            setLoading(true)
+            const url = `https://api.onwater.io/api/v1/results/${coords.lat},${coords.lon}?access_token=${ACCESS_TOKEN}`
+            const res = await (await fetch(url)).json()
+            if(res.water === waterChoice) setCorrectChoice(true)
+            else setCorrectChoice(false)
+            setLoading(false)
+        }
+        fetchData()
+        // return () => {
+        //     cleanup
+        // }
+    }, [showQuestion])
     
     if(showQuestion) return <Question setShowQuestion={setShowQuestion} coords={coords} setWaterChoice= {setWaterChoice}/>
-    return <Result waterChoice={waterChoice}/>
+    return <Result waterChoice={waterChoice} correctChoice={correctChoice} loading={loading} reset={reset}/>
 
     function getRandomCoordsPair() {
         const lat = getRandomCoord(90)
@@ -24,4 +42,8 @@ export default function App() {
         return sign*magnitude;
     }
 
+    function reset() {
+        setCoords(getRandomCoordsPair)
+        setShowQuestion(true)
+    }
 }
