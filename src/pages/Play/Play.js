@@ -4,7 +4,7 @@ import Result from "./components/Result"
 
 const ACCESS_TOKEN = "KZUPxtJVPPjr2DXyqV3F"
 
-export default function Play() {
+export default function Play({ setTotalCount, setCorrectCount }) {
     const [showQuestion, setShowQuestion] = useState(true)
     const [{ lat, lon }, setCoords] = useState(getRandomCoordsPair)
     const [waterChoice, setWaterChoice] = useState()
@@ -20,8 +20,12 @@ export default function Play() {
             const url = `https://api.onwater.io/api/v1/results/${lat},${lon}?access_token=${ACCESS_TOKEN}`
             try{
                 const res = await (await fetch(url)).json()
-                if(res.water === waterChoice) setCorrectChoice(true)
+                if(res.water === waterChoice) {
+                    setCorrectChoice(true)
+                    setCorrectCount(prev => prev+1)
+                }
                 else setCorrectChoice(false)
+                setTotalCount(prev => prev+1)
             } catch {
                 setIsError(true)
             } finally {

@@ -1,9 +1,10 @@
 import React from 'react'
 
-export default function Stats() {
+export default function Stats({ totalCount, correctCount }) {
     return (
-        <div>
-            Stats
-        </div>
+        <section>
+            <h1>Stats</h1>
+            Out of {totalCount} you got {correctCount} right!
+        </section>
     )
 }
