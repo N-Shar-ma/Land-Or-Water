@@ -1,16 +1,22 @@
-import React, {useEffect, useState } from 'react'
+import React, {useEffect, useState, useContext } from 'react'
+import { StatsContext } from "../../App"
 import Question from "./components/Question"
 import Result from "./components/Result"
 
 const ACCESS_TOKEN = "KZUPxtJVPPjr2DXyqV3F"
 
-export default function Play({ setTotalCount, setCorrectCount }) {
+export default function Play() {
     const [showQuestion, setShowQuestion] = useState(true)
     const [{ lat, lon }, setCoords] = useState(getRandomCoordsPair)
     const [waterChoice, setWaterChoice] = useState()
     const [correctChoice, setCorrectChoice] = useState()
     const [loading, setLoading] = useState(true)
     const [isError, setIsError] = useState(false)
+
+    const {
+        setCorrectCount,
+        setTotalCount
+    } = useContext(StatsContext)
     
     useEffect(() => {
         if(showQuestion) return
@@ -47,7 +53,7 @@ export default function Play({ setTotalCount, setCorrectCount }) {
         waterChoice={waterChoice} 
         correctChoice={correctChoice} 
         loading={loading} 
-        reset={reset} 
+        reset={resetQuestion} 
         isError={isError}
     />
 
@@ -63,7 +69,7 @@ export default function Play({ setTotalCount, setCorrectCount }) {
         return sign*magnitude;
     }
 
-    function reset() {
+    function resetQuestion() {
         setCoords(getRandomCoordsPair)
         setShowQuestion(true)
     }

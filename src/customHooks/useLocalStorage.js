@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function useLocalStorage(name, initialValue) {
     const PREFIX = "WaterOrLand"
-    const KEY = `${PREFIX}-${name}`
-    const [value, setValue] = useState(JSON.parse(localStorage.getItem(KEY)) || initialValue)
+    const key = `${PREFIX}-${name}`
+    
+    const [value, setValue] = useState(JSON.parse(localStorage.getItem(key)) || initialValue)
 
     useEffect(() => {
-        localStorage.setItem(KEY, JSON.stringify(value))
+        localStorage.setItem(key, JSON.stringify(value))
     }, [value])
 
     return [value, setValue]
