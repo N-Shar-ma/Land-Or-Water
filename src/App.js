@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
+import useLocalStorage from './customHooks/useLocalStorage';
 import Play from './pages/Play/Play';
 import Stats from './pages/Stats';
 
 export default function App() {
-    const [totalCount, setTotalCount] = useState(0)
-    const [correctCount, setCorrectCount] = useState(0)
-
+    const [totalCount, setTotalCount] = useLocalStorage("totalCount", 0)
+    const [correctCount, setCorrectCount] = useLocalStorage("correctCount", 0)
 
     return (
         <Router>
