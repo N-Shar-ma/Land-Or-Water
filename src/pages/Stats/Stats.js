@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
-import { StatsContext } from '../App';
+import { StatsContext } from '../../App';
+import styles from "./stats.module.css"
 
 export default function Stats() {
     const { 
@@ -12,7 +13,7 @@ export default function Stats() {
     const graphWidth = correctCount / totalCount * 100;
     
     return (
-        <section>
+        <section className={styles.main}>
             <h1>Stats</h1>
             Out of {totalCount} you got {correctCount} right!
             {totalCount ? 

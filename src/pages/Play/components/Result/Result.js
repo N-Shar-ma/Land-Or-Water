@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from "./result.module.css"
 
 export default function Result(props) {
     const { 
@@ -10,10 +11,10 @@ export default function Result(props) {
     } = props
     
     return (
-        <>
+        <section className={styles.main}>
             {getMessage()}
             {!loading && <button onClick={reset}>Play again!</button>}
-        </>
+        </section>
     )
 
     function getMessage () {

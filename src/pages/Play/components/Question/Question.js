@@ -1,4 +1,5 @@
 import React, { useRef } from 'react'
+import styles from './question.module.css'
 
 export default function Question(props) {
     const {
@@ -11,7 +12,7 @@ export default function Question(props) {
     const waterChoiceRef = useRef()
 
     return (
-        <form onSubmit={submitHandler} >
+        <form className={styles.main} onSubmit={submitHandler} >
             <div>Are the coordinates {lat}, {lon} on water?</div>
             <label> 
                 <input
@@ -20,7 +21,7 @@ export default function Question(props) {
                 />
                 Yes (unchecked is assumed as no)
             </label>
-            <button type="submit">Submit!</button>
+            <button className={styles.submitButton} type="submit">Submit!</button>
         </form>
     )
 

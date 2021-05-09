@@ -1,8 +1,10 @@
 import React, { createContext } from 'react';
-import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom'
+import {BrowserRouter as Router, Route, Switch, NavLink, Redirect} from 'react-router-dom'
 import useLocalStorage from './customHooks/useLocalStorage';
 import Play from './pages/Play/Play';
-import Stats from './pages/Stats';
+import Stats from './pages/Stats/Stats';
+import styles from "./app.module.css"
+import "./index.css"
 
 export const StatsContext = createContext()
 
@@ -12,9 +14,9 @@ export default function App() {
 
     return (
         <Router>
-            <nav>
-                <Link to="/">Play</Link>
-                <Link to="/stats">Stats</Link>
+            <nav className={styles.navBar}>
+                <NavLink className={styles.link} activeClassName={styles.currentLink} to="/play">Play</NavLink>
+                <NavLink className={styles.link} activeClassName={styles.currentLink} to="/stats">Stats</NavLink>
             </nav>
             <StatsContext.Provider value={{ 
                 totalCount, 
@@ -24,6 +26,9 @@ export default function App() {
             }}>
                 <Switch>
                     <Route path="/" exact>
+                        <Redirect to="/play"/>
+                    </Route>
+                    <Route path="/play">
                         <Play/>
                     </Route>
                     <Route path="/stats">

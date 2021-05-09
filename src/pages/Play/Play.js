@@ -1,7 +1,8 @@
 import React, {useEffect, useState, useContext } from 'react'
 import { StatsContext } from "../../App"
-import Question from "./components/Question"
-import Result from "./components/Result"
+import Question from "./components/Question/Question"
+import Result from "./components/Result/Result"
+import styles from "./play.module.css"
 
 const ACCESS_TOKEN = "KZUPxtJVPPjr2DXyqV3F"
 
