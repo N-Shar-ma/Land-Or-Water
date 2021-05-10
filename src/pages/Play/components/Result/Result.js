@@ -13,7 +13,7 @@ export default function Result(props) {
     return (
         <section className={styles.main}>
             {getMessage()}
-            {!loading && <button onClick={reset}>Play again!</button>}
+            {!loading && <button className={styles.button} onClick={reset}>Play again!</button>}
         </section>
     )
 
@@ -21,7 +21,7 @@ export default function Result(props) {
         if(isError) return "Sorry an error occured!"
         let msg = `You chose ${waterChoice ? "water" : "land"} and your answer is `
         if (loading) msg+= "...wait for it"
-        else msg+= correctChoice ? "right!" : "wrong!"
+        else msg+= correctChoice ? "right! 😄" : "wrong! 🙁"
         return msg
     }
 }

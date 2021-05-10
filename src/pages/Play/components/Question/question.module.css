@@ -1,5 +1,5 @@
 .main {
-    border-top: 2px solid brown;
+    border-top: 2px solid rgb(175, 72, 47);
     height: calc(100% - var(--navBarHeight));
     display: flex;
     flex-direction: column;
@@ -7,18 +7,28 @@
     align-items: center;
 }
 
-@media screen and (max-width: 536px) {
+@media screen and (max-width: 600px) {
     .main {
         height: calc(100% - 2 * var(--navBarHeight));
     }
 }
 
+.label {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox {
+    height: 20px;
+    width: 20px;
+}
+
 .button {
     display: block;
-    background: brown;
-    color: rgb(142, 255, 138);;
+    background: rgb(175, 72, 47);
+    color: wheat;
     padding: 0.3rem 0.5rem;
-    border: 2px solid rgb(142, 255, 138);;
+    border: 2px solid wheat;
     border-radius: 0.5rem;
     font-size: 2rem;
     cursor: pointer;
@@ -26,7 +36,7 @@
 }
 
 .button:hover {
-    background: rgb(142, 255, 138);
-    color: brown;
-    border: 2px solid brown;
+    background: wheat;
+    color: rgb(175, 72, 47);
+    border: 2px solid rgb(175, 72, 47);
 }

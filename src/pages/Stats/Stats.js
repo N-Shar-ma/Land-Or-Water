@@ -14,7 +14,7 @@ export default function Stats() {
     
     return (
         <section className={styles.main}>
-            <h1>Stats</h1>
+            <h2>Stats</h2>
             Out of {totalCount} you got {correctCount} right!
             {totalCount ? 
             <>
