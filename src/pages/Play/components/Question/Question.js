@@ -21,7 +21,7 @@ export default function Question(props) {
                 />
                 Yes (unchecked is assumed as no)
             </label>
-            <button className={styles.submitButton} type="submit">Submit!</button>
+            <button className={styles.button} type="submit">Submit!</button>
         </form>
     )
 

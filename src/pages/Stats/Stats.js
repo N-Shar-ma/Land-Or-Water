@@ -22,7 +22,7 @@ export default function Stats() {
                 <div style={{backgroundColor: "green", height: "100%", width: `${graphWidth}%`}}>
                 </div>
             </div>
-            <button onClick={resetStats}>Reset Stats</button>
+            <button className={styles.button} onClick={resetStats}>Reset Stats</button>
             </> : ""}
         </section>
     )

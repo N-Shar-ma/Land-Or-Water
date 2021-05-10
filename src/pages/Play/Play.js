@@ -43,14 +43,14 @@ export default function Play() {
     }, [showQuestion])
     
     if(showQuestion) 
-    return <Question 
+    return <Question
         setWaterChoice={setWaterChoice}
         lat={lat} 
         lon={lon} 
         setShowQuestion= {setShowQuestion}
     />
     else
-    return <Result 
+    return <Result
         waterChoice={waterChoice} 
         correctChoice={correctChoice} 
         loading={loading} 

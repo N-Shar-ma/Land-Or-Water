@@ -14,10 +14,13 @@ export default function App() {
 
     return (
         <Router>
-            <nav className={styles.navBar}>
-                <NavLink className={styles.link} activeClassName={styles.currentLink} to="/play">Play</NavLink>
-                <NavLink className={styles.link} activeClassName={styles.currentLink} to="/stats">Stats</NavLink>
-            </nav>
+            <header className={styles.header}>
+                <h1 className={styles.title}>Water Or Land?</h1>
+                <nav className={styles.navBar}>
+                    <NavLink className={styles.link} activeClassName={styles.currentLink} to="/play">Play</NavLink>
+                    <NavLink className={styles.link} activeClassName={styles.currentLink} to="/stats">Stats</NavLink>
+                </nav>
+            </header>
             <StatsContext.Provider value={{ 
                 totalCount, 
                 correctCount, 

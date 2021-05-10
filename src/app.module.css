@@ -1,8 +1,40 @@
-.navBar {
-    height: var(--navBarHeight);
+.header{
     display: flex;
-    background-color: lightgreen;
-    width: clamp(300px, 50%, 800px);
+    justify-content: space-between;
+    align-items: stretch;
+    height: var(--navBarHeight);
+    position: sticky;
+    top: 0;
+    width: 100%;
+}
+
+.title {
+    color: brown;
+    margin: 0;
+    margin-left: 0.5rem;
+    line-height: var(--navBarHeight);
+    font-size: 2.5rem;
+}
+
+.navBar {
+    display: flex;
+    background-color: rgb(177, 251, 232);
+    width: clamp(300px, 40%, 800px);
+}
+
+@media screen and (max-width: 536px) {
+    .header {
+        flex-wrap: wrap;
+        height: calc(2 * var(--navBarHeight));
+    }
+    
+    .title {
+        margin: 0 auto;
+    }
+
+    .navBar {
+        width: 100%;
+    }
 }
 
 .link {
@@ -12,13 +44,14 @@
     line-height: var(--navBarHeight);
     font-size: 1.5rem;
     font-weight: bold;
-    color: green;
+    color: brown;
     text-decoration: none;
     border-top-right-radius: 40px;
     border-top-left-radius: 40px;
+    transition: all 150ms ease-in-out;
 }
 
 .currentLink {
-    background-color: green;
-    color: wheat;
+    background-color: brown;
+    color: rgb(142, 255, 138);
 }
