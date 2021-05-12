@@ -29,11 +29,11 @@ export default function App() {
             }}>
                 <main className={styles.main}>
                     <Switch>
-                        <Route path="/" exact>
-                            <Redirect to="/play"/>
-                        </Route>
                         <Route path="/play" component={Play}/>
                         <Route path="/stats" component={Stats}/>
+                        <Route path="/">
+                            <Redirect to="/play"/>
+                        </Route>
                     </Switch>
                 </main>
             </StatsContext.Provider>
