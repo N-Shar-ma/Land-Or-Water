@@ -6,6 +6,7 @@
     position: sticky;
     top: 0;
     width: 100%;
+    background-color: wheat;
 }
 
 .title {
@@ -18,23 +19,7 @@
 
 .navBar {
     display: flex;
-    background-color: rgb(177, 251, 232);
     width: clamp(300px, 40%, 800px);
-}
-
-@media screen and (max-width: 600px) {
-    .header {
-        flex-wrap: wrap;
-        height: calc(2 * var(--navBarHeight));
-    }
-    
-    .title {
-        margin: 0 auto;
-    }
-
-    .navBar {
-        width: 100%;
-    }
 }
 
 .link {
@@ -58,12 +43,13 @@
 
 .main {
     border-top: 2px solid rgb(175, 72, 47);
-    border-bottom: 1px solid rgb(175, 72, 47);
+    border-bottom: 2px solid rgb(0, 174, 255);
     height: calc(100% - 1.75 * var(--navBarHeight));
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    padding: 20px;
 }
 
 
@@ -73,5 +59,33 @@
     justify-content: center;
     align-items: center;
     font-size: 1rem;
-    color: rgb(175, 72, 47);
+    background-color: rgb(177, 251, 232);
+}
+
+.apiLink {
+    color: rgb(0, 174, 255);
+    text-decoration: none;
+}
+
+.apiLink:hover {
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 600px) {
+    .header {
+        flex-wrap: wrap;
+        height: calc(2 * var(--navBarHeight));
+    }
+    
+    .title {
+        margin: 0 auto;
+    }
+
+    .navBar {
+        width: 100%;
+    }
+
+    .main {
+        height: calc(100% - 2.75 * var(--navBarHeight));
+    }
 }

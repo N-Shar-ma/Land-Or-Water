@@ -38,7 +38,7 @@ export default function App() {
                 </main>
             </StatsContext.Provider>
             <footer className={styles.footer}>
-                <span>Thanks to the <a href="https://onwater.io" target="_blank" rel="noreferrer noopener">OnWater API</a> for all the geographical data</span>
+                <span>Thanks to the <a className={styles.apiLink} href="https://onwater.io" target="_blank" rel="noreferrer noopener">OnWater API</a> for all the geographical data</span>
             </footer>
         </Router>
     )
