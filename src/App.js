@@ -27,18 +27,19 @@ export default function App() {
                 setTotalCount, 
                 setCorrectCount 
             }}>
-                <Switch>
-                    <Route path="/" exact>
-                        <Redirect to="/play"/>
-                    </Route>
-                    <Route path="/play">
-                        <Play/>
-                    </Route>
-                    <Route path="/stats">
-                        <Stats/>
-                    </Route>
-                </Switch>
+                <main className={styles.main}>
+                    <Switch>
+                        <Route path="/" exact>
+                            <Redirect to="/play"/>
+                        </Route>
+                        <Route path="/play" component={Play}/>
+                        <Route path="/stats" component={Stats}/>
+                    </Switch>
+                </main>
             </StatsContext.Provider>
+            <footer className={styles.footer}>
+                <span>Thanks to the <a href="https://onwater.io" target="_blank" rel="noreferrer noopener">OnWater API</a> for all the geographical data</span>
+            </footer>
         </Router>
     )
 }

@@ -13,7 +13,7 @@ export default function Stats() {
     const graphWidth = correctCount / totalCount * 100;
     
     return (
-        <section className={styles.main}>
+        <>
             <h2>Stats</h2>
             Out of {totalCount} you got {correctCount} right!
             {totalCount ? 
@@ -24,7 +24,7 @@ export default function Stats() {
             </div>
             <button className={styles.button} onClick={resetStats}>Reset Stats</button>
             </> : ""}
-        </section>
+        </>
     )
 
     function resetStats() {

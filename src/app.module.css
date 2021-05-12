@@ -55,3 +55,23 @@
     background-color: rgb(175, 72, 47);
     color: wheat;
 }
+
+.main {
+    border-top: 2px solid rgb(175, 72, 47);
+    border-bottom: 1px solid rgb(175, 72, 47);
+    height: calc(100% - 1.75 * var(--navBarHeight));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
+.footer {
+    display: flex;
+    height: calc(0.75 * var(--navBarHeight));
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    color: rgb(175, 72, 47);
+}

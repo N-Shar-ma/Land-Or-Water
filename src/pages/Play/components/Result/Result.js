@@ -11,10 +11,10 @@ export default function Result(props) {
     } = props
     
     return (
-        <section className={styles.main}>
+        <>
             {getMessage()}
             {!loading && <button className={styles.button} onClick={reset}>Play again!</button>}
-        </section>
+        </>
     )
 
     function getMessage () {
