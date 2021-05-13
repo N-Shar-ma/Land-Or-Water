@@ -1,4 +1,4 @@
-import React, {useLayoutEffect, useState, useContext } from 'react'
+import React, {useEffect, useState, useContext } from 'react'
 import { StatsContext } from "../../App"
 import Question from "./components/Question/Question"
 import Result from "./components/Result/Result"
@@ -9,7 +9,7 @@ export default function Play() {
     const [{ lat, lon }, setCoords] = useState(getRandomCoordsPair)
     const [waterChoice, setWaterChoice] = useState()
     const [correctChoice, setCorrectChoice] = useState()
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
     const [isError, setIsError] = useState(false)
 
     const {
@@ -17,11 +17,10 @@ export default function Play() {
         setTotalCount
     } = useContext(StatsContext)
     
-    useLayoutEffect(() => {
+    useEffect(() => {
         if(showQuestion) return
         async function fetchData() {
             setIsError(false)
-            setLoading(true)
             const url = `https://api.onwater.io/api/v1/results/${lat},${lon}?access_token=${ACCESS_TOKEN}`
             try{
                 const res = await (await fetch(url)).json()
@@ -46,6 +45,7 @@ export default function Play() {
         lat={lat} 
         lon={lon} 
         setShowQuestion= {setShowQuestion}
+        setLoading={setLoading}
     />
     else
     return <Result

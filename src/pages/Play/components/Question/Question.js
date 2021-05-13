@@ -6,7 +6,8 @@ export default function Question(props) {
         setWaterChoice,
         lat, 
         lon, 
-        setShowQuestion 
+        setShowQuestion,
+        setLoading
     } = props
 
     const waterChoiceRef = useRef()
@@ -30,6 +31,7 @@ export default function Question(props) {
         e.preventDefault()
         setWaterChoice(waterChoiceRef.current.checked)
         // console.log(waterChoiceRef)
+        setLoading(true)
         setShowQuestion(false)
     }
 }
