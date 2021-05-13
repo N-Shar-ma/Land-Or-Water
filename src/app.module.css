@@ -34,6 +34,8 @@
     border-top-right-radius: 40px;
     border-top-left-radius: 40px;
     transition: all 150ms ease-in-out;
+    border: 2px solid rgb(175, 72, 47);
+    border-bottom: none;
 }
 
 .currentLink {

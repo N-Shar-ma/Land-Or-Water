@@ -24,10 +24,10 @@
 
 .button {
     display: block;
-    background: rgb(175, 72, 47);
-    color: wheat;
+    background: rgb(0, 174, 255);
+    color: rgb(177, 251, 232);
     padding: 0.3rem 0.5rem;
-    border: 2px solid wheat;
+    border: 2px solid currentColor;
     border-radius: 0.5rem;
     font-size: 2rem;
     cursor: pointer;
@@ -35,7 +35,7 @@
 }
 
 .button:hover {
-    background: wheat;
-    color: rgb(175, 72, 47);
-    border: 2px solid rgb(175, 72, 47);
+    background: rgb(177, 251, 232);
+    color: rgb(0, 174, 255);
+    border: 2px solid currentColor;
 }
