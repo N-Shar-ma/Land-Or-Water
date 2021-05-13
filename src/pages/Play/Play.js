@@ -1,4 +1,4 @@
-import React, {useEffect, useState, useContext } from 'react'
+import React, {useLayoutEffect, useState, useContext } from 'react'
 import { StatsContext } from "../../App"
 import Question from "./components/Question/Question"
 import Result from "./components/Result/Result"
@@ -17,7 +17,7 @@ export default function Play() {
         setTotalCount
     } = useContext(StatsContext)
     
-    useEffect(() => {
+    useLayoutEffect(() => {
         if(showQuestion) return
         async function fetchData() {
             setIsError(false)

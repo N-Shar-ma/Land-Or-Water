@@ -10,8 +10,12 @@
     transition: all 300ms ease-in-out;
 }
 
-.button:hover {
+.button:hover:not(:disabled) {
     background: wheat;
     color: rgb(175, 72, 47);
     border: 2px solid rgb(175, 72, 47);
+}
+
+.button:disabled {
+    filter: grayscale(0.8);
 }
