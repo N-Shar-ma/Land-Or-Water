@@ -46,10 +46,12 @@ export default function Play() {
         lon={lon} 
         setShowQuestion= {setShowQuestion}
         setLoading={setLoading}
-    />
-    else
-    return <Result
+        />
+        else
+        return <Result
         waterChoice={waterChoice} 
+        lat={lat} 
+        lon={lon} 
         correctChoice={correctChoice} 
         loading={loading} 
         reset={resetQuestion} 
